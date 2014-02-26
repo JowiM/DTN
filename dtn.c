@@ -599,7 +599,7 @@ recv_unic(struct unicast_conn *c, const rimeaddr_t *from){
 	struct dtn_msg_header *hdr = (struct dtn_msg_header*) packetbuf_dataptr();
 	struct packetqueue_item *i_q;
 	DEBUG_MSG(1, "RECEVIED UNICAST!! -- FROM: ", from);
-	DEBUG_PKT(hdr, -1);
+	DEBUG_PKT(hdr, 2);
 
 	if(is_spray_wait(hdr) == 0){
 		return;
