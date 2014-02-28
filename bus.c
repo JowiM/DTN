@@ -32,7 +32,7 @@ static void
 set_local_address(){
 	static rimeaddr_t myAddr;
 	rimeaddr_copy(&myAddr, &rimeaddr_null);
-	myAddr.u8[0] = 0x08;
+	myAddr.u8[0] = 0x09;
 	rimeaddr_copy(&rimeaddr_node_addr, &myAddr);
 }
 
@@ -72,7 +72,7 @@ PROCESS_THREAD(bus_transport, ev, data){
 	//Intialize protocol
 	SENSORS_ACTIVATE(button_sensor);
 #if CONTIKI_TARGET_ORISENPRIME
-	set_power(0x00);
+	set_power(0x01);
 #endif
 	dtn_init();
 
@@ -86,7 +86,7 @@ PROCESS_THREAD(bus_transport, ev, data){
 #endif
 
 		rimeaddr_copy(&addr_ereceviver, &rimeaddr_null);
-		addr_ereceviver.u8[0] = 0x03;
+		addr_ereceviver.u8[0] = 0x04;
 		//Create new buffer
 		dtn_new_buff(myData, &addr_ereceviver);
 	}
